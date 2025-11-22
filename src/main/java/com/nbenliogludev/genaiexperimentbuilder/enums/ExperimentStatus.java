@@ -1,4 +1,4 @@
-package com.nbenliogludev.genaiexperimentbuilder.entity;
+package com.nbenliogludev.genaiexperimentbuilder.enums;
 
 /**
  * @author nbenliogludev
