@@ -1,5 +1,6 @@
 package com.nbenliogludev.genaiexperimentbuilder.entity;
 
+import com.nbenliogludev.genaiexperimentbuilder.enums.ExperimentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
