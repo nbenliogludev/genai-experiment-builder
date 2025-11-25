@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 /**
  * @author nbenliogludev
  */
-
 @Entity
 @Table(name = "experiments")
 @Getter
