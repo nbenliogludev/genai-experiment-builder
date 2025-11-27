@@ -44,15 +44,29 @@ public class AiExperimentServiceImpl implements AiExperimentService {
                 """;
 
         String userPrompt = """
-                Create an A/B test based on the following input:
+        Create an A/B test based on the following input:
 
-                Idea: %s
-                Page: %s
-                Goal: %s
+        Idea: %s
+        Page: %s
+        Goal: %s
 
-                The goal is to improve UX and conversions. Propose 2-3 strong variants.
-                """
-                .formatted(request.getIdea(), request.getPage(), request.getGoal());
+        The goal is to improve UX and conversions. Propose 2-3 strong variants.
+
+        Here is the HTML of the page. Use it to propose concrete UI changes.
+        Focus on modifying existing elements (texts, colors, buttons) instead of inventing a totally new layout.
+
+        HTML:
+        ---
+        %s
+        ---
+        """
+                .formatted(
+                        request.getIdea(),
+                        request.getPage(),
+                        request.getGoal(),
+                        request.getPageHtml()
+                );
+
 
         String content = chatClient
                 .prompt()
