@@ -18,9 +18,16 @@ export function ExperimentForm({ loading, onSubmit }: ExperimentFormProps) {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
+        if (mode === 'basic' && !page.trim()) {
+            return;
+        }
+        if (mode === 'html' && !pageHtml.trim()) {
+            return;
+        }
+
         const payload: AiGenerateExperimentRequest = {
             idea,
-            page,
+            page: mode === 'basic' ? page : '',
             goal,
             pageHtml: mode === 'html' ? pageHtml : '',
         };
@@ -71,17 +78,20 @@ export function ExperimentForm({ loading, onSubmit }: ExperimentFormProps) {
                 />
             </label>
 
-            <label className="flex flex-col gap-1 text-xs text-slate-300">
-                Page URL or path
-                <input
-                    type="text"
-                    value={page}
-                    onChange={(e) => setPage(e.target.value)}
-                    placeholder="https://example.com/checkout or /checkout"
-                    required
-                    className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-slate-100 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
-                />
-            </label>
+            {/* Page URL / path SADECE basic modunda görünsün */}
+            {mode === 'basic' && (
+                <label className="flex flex-col gap-1 text-xs text-slate-300">
+                    Page URL or path
+                    <input
+                        type="text"
+                        value={page}
+                        onChange={(e) => setPage(e.target.value)}
+                        placeholder="https://example.com/checkout or /checkout"
+                        required={mode === 'basic'}
+                        className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-slate-100 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
+                    />
+                </label>
+            )}
 
             <label className="flex flex-col gap-1 text-xs text-slate-300">
                 Goal
@@ -95,13 +105,15 @@ export function ExperimentForm({ loading, onSubmit }: ExperimentFormProps) {
                 />
             </label>
 
+            {/* HTML alanı SADECE html modunda görünsün */}
             {mode === 'html' && (
                 <label className="flex flex-col gap-1 text-xs text-slate-300">
-                    Page HTML (optional snippet)
+                    Page HTML
                     <textarea
                         value={pageHtml}
                         onChange={(e) => setPageHtml(e.target.value)}
                         placeholder="<!DOCTYPE html>..."
+                        required={mode === 'html'}
                         className="w-full min-h-[120px] rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-slate-100 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 font-mono resize-y"
                     />
                 </label>
