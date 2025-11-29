@@ -30,8 +30,12 @@ public class Experiment {
     @Column(nullable = false)
     private String goal;
 
-    @Column(nullable = false)
+    @Column(name = "page")
     private String page;
+
+    @Lob
+    @Column(name = "base_html", columnDefinition = "text")
+    private String baseHtml;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
