@@ -39,39 +39,17 @@ public class ExperimentPromptFactory {
                 """;
     }
 
-    public String buildUserPrompt(AiGenerateExperimentRequest request) {
+    public String buildUserPrompt(AiGenerateExperimentRequest request, String pageHtml) {
+        return """
+               You are an AI experiment designer...
 
-        String base = """
-                Create an A/B test based on the following input:
+               Page URL: %s
+               Goal: %s
 
-                Idea: %s
-                Page: %s
-                Goal: %s
-
-                The goal is to improve UX and conversions. Propose 2-3 strong variants.
-                """
-                .formatted(
-                        request.getIdea(),
-                        request.getPage(),
-                        request.getGoal()
-                );
-
-        if (request.getPageHtml() == null || request.getPageHtml().isBlank()) {
-            return base;
-        }
-
-        String htmlPart = """
-                
-                Here is the HTML of the page. Use it to propose concrete UI changes.
-                Focus on modifying existing elements (texts, colors, buttons) instead of
-                inventing a totally new layout.
-
-                HTML:
-                ---
-                %s
-                ---
-                """.formatted(request.getPageHtml());
-
-        return base + htmlPart;
+               Here is the current HTML of the page:
+               ---
+               %s
+               ---
+               """.formatted(request.getPage(), request.getGoal(), pageHtml);
     }
 }

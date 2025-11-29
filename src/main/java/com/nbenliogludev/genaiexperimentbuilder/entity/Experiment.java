@@ -30,7 +30,7 @@ public class Experiment {
     @Column(nullable = false)
     private String goal;
 
-    @Column(name = "page")
+    @Column(name = "page", nullable = false)
     private String page;
 
     @Lob
