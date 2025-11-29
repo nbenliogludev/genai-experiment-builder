@@ -33,6 +33,10 @@ public class Variant {
     @Column(name = "ui_changes", columnDefinition = "text")
     private String uiChanges;
 
+    @Lob
+    @Column(name = "modified_html", columnDefinition = "text")
+    private String modifiedHtml;
+
     @Column(name = "traffic_share")
     private BigDecimal trafficShare;
 

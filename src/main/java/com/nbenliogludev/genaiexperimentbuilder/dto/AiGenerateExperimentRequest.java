@@ -19,7 +19,4 @@ public class AiGenerateExperimentRequest {
 
     @NotBlank
     private String goal;
-
-    @NotBlank
-    private String pageHtml;
 }
