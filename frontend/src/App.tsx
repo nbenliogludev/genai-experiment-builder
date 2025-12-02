@@ -8,12 +8,14 @@ function App() {
     return (
         <div className="min-h-screen flex items-center justify-center px-4 py-10 bg-slate-950 bg-[radial-gradient(circle_at_top,_#1f2937_0,_#020617_55%,_#000000_100%)]">
             <div className="w-full max-w-3xl rounded-3xl bg-slate-900/95 border border-slate-800 shadow-2xl shadow-black/60 px-6 py-7 text-slate-100">
+
                 <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
                     GenAI Experiment Builder
                 </h1>
+
                 <p className="text-xs md:text-sm text-slate-400 mb-6 max-w-xl">
-                    Enter an idea, page URL/path, and optionally an HTML snippet to generate
-                    AI-powered A/B test variants.
+                    Enter an idea and a URL. If the URL belongs to localhost, HTML will be
+                    fetched from the browser. If not, it will be fetched from the backend.
                 </p>
 
                 <ExperimentForm loading={loading} onSubmit={runExperiment} />
