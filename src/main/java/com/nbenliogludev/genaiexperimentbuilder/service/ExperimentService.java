@@ -1,7 +1,7 @@
 package com.nbenliogludev.genaiexperimentbuilder.service;
 
-import com.nbenliogludev.genaiexperimentbuilder.dto.CreateExperimentRequest;
-import com.nbenliogludev.genaiexperimentbuilder.dto.ExperimentResponse;
+import com.nbenliogludev.genaiexperimentbuilder.dto.request.CreateExperimentRequest;
+import com.nbenliogludev.genaiexperimentbuilder.dto.response.ExperimentResponse;
 
 import java.util.List;
 

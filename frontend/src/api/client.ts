@@ -12,6 +12,9 @@ export interface AiGeneratedVariantDto {
     name: string;
     description: string;
     uiChanges: string;
+    modifiedHtmlBase64: string;
+    explanation: string;
+    trafficShare?: number;
 }
 
 export interface AiGenerateExperimentResponse {
@@ -24,7 +27,6 @@ export interface AiGenerateExperimentRequest {
     idea: string;
     page: string;
     goal: string;
-    pageHtml: string;
 }
 
 export async function generateExperiment(
@@ -32,9 +34,7 @@ export async function generateExperiment(
 ): Promise<AiGenerateExperimentResponse> {
     const response = await fetch('/api/experiments/ai-generate', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(req),
     });
 
