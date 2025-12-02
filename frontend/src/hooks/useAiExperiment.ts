@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { generateExperiment } from '../api/client';
-import type {
-    AiGenerateExperimentRequest,
-    AiGenerateExperimentResponse,
-} from '../api/client';
+import type { AiGenerateExperimentRequest, AiGenerateExperimentResponse } from '../api/client';
 
 export function useAiExperiment() {
     const [loading, setLoading] = useState(false);
@@ -19,11 +16,16 @@ export function useAiExperiment() {
             const response = await generateExperiment(req);
             setResult(response);
         } catch (e: any) {
-            setError(e?.message ?? 'Request failed');
+            setError(e?.message ?? "Request failed");
         } finally {
             setLoading(false);
         }
     };
 
-    return { loading, error, result, runExperiment };
+    return {
+        loading,
+        error,
+        result,
+        runExperiment,
+    };
 }
