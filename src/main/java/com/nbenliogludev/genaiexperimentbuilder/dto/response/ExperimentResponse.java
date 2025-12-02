@@ -1,4 +1,4 @@
-package com.nbenliogludev.genaiexperimentbuilder.dto;
+package com.nbenliogludev.genaiexperimentbuilder.dto.response;
 
 import com.nbenliogludev.genaiexperimentbuilder.enums.ExperimentStatus;
 import lombok.Builder;

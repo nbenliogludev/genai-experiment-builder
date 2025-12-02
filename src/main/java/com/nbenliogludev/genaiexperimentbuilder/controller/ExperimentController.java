@@ -1,9 +1,8 @@
 package com.nbenliogludev.genaiexperimentbuilder.controller;
 
-import com.nbenliogludev.genaiexperimentbuilder.dto.AiGenerateExperimentRequest;
-import com.nbenliogludev.genaiexperimentbuilder.dto.AiGenerateExperimentResponse;
-import com.nbenliogludev.genaiexperimentbuilder.dto.CreateExperimentRequest;
-import com.nbenliogludev.genaiexperimentbuilder.dto.ExperimentResponse;
+import com.nbenliogludev.genaiexperimentbuilder.dto.request.AiGenerateExperimentRequest;
+import com.nbenliogludev.genaiexperimentbuilder.dto.response.AiGenerateExperimentResponse;
+import com.nbenliogludev.genaiexperimentbuilder.dto.response.ExperimentResponse;
 import com.nbenliogludev.genaiexperimentbuilder.service.AiExperimentService;
 import com.nbenliogludev.genaiexperimentbuilder.service.ExperimentService;
 import jakarta.validation.Valid;
@@ -24,14 +23,6 @@ public class ExperimentController {
 
     private final ExperimentService experimentService;
     private final AiExperimentService aiExperimentService;
-
-    @PostMapping
-    public ResponseEntity<ExperimentResponse> createExperiment(
-            @Valid @RequestBody CreateExperimentRequest request
-    ) {
-        ExperimentResponse response = experimentService.createExperiment(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
-    }
 
     @GetMapping
     public ResponseEntity<List<ExperimentResponse>> getAllExperiments() {

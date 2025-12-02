@@ -1,4 +1,4 @@
-package com.nbenliogludev.genaiexperimentbuilder.dto;
+package com.nbenliogludev.genaiexperimentbuilder.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.util.List;
 
 /**
- * @author nbenliogludev
+ * @author nbenli...
  */
 @Getter
 @Builder

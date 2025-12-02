@@ -5,7 +5,6 @@ import type {
     AiGenerateExperimentResponse,
 } from '../api/client';
 
-
 export function useAiExperiment() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -26,10 +25,5 @@ export function useAiExperiment() {
         }
     };
 
-    return {
-        loading,
-        error,
-        result,
-        runExperiment,
-    };
+    return { loading, error, result, runExperiment };
 }

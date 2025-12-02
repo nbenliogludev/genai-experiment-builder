@@ -1,7 +1,7 @@
 package com.nbenliogludev.genaiexperimentbuilder.service.impl;
 
-import com.nbenliogludev.genaiexperimentbuilder.dto.CreateExperimentRequest;
-import com.nbenliogludev.genaiexperimentbuilder.dto.ExperimentResponse;
+import com.nbenliogludev.genaiexperimentbuilder.dto.request.CreateExperimentRequest;
+import com.nbenliogludev.genaiexperimentbuilder.dto.response.ExperimentResponse;
 import com.nbenliogludev.genaiexperimentbuilder.entity.Experiment;
 import com.nbenliogludev.genaiexperimentbuilder.enums.ExperimentStatus;
 import com.nbenliogludev.genaiexperimentbuilder.repository.ExperimentRepository;

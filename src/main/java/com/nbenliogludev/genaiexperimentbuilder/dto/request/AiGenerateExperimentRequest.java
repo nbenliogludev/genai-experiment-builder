@@ -1,4 +1,4 @@
-package com.nbenliogludev.genaiexperimentbuilder.dto;
+package com.nbenliogludev.genaiexperimentbuilder.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -9,14 +9,14 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class CreateExperimentRequest {
+public class AiGenerateExperimentRequest {
 
     @NotBlank
-    private String name;
-
-    @NotBlank
-    private String goal;
+    private String idea;
 
     @NotBlank
     private String page;
+
+    @NotBlank
+    private String goal;
 }
